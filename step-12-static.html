@@ -1,0 +1,344 @@
+<html>
+    <head>
+        <title>CSS Stopwatch Example</title>
+    	<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    color: darkblue;
+    background: darkslategrey;
+}
+
+h1 {
+    font-family: Calibri;
+    font-size: 36px;
+    text-align: center;
+    color: powderblue;
+    margin-top: 32px;
+}
+
+input[type="radio"] {
+    opacity: 0.001;
+    position: absolute;
+}
+
+.container {
+    position: relative;
+    margin: 2% auto;
+    font-family: Calibri;
+    font-size: 20px;
+    width: 400px;
+    height: 400px;
+}
+
+.clock {
+    background: powderblue;
+    border-color: darkblue;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.segment {
+    height: 100%;
+    position: absolute;
+    padding-top: 4%;
+    width: 2em;
+    left: calc(50% - 1em);
+    text-align: center;
+    top: 0px;
+}
+
+.numeral {
+    width: 2em;
+    text-align: center;
+}
+
+.major {
+    height: 3%;
+    width: 1%;
+    position: absolute;
+    background: darkblue;
+    left: 49.5%;
+    top: 0px;
+    transform-origin: center calc(5000% / 3);
+}
+
+.minor {
+    height: 60%;
+    width: 50%;
+    position: absolute;
+    background: darkblue;
+    left: 0px;
+    top: 0px;
+    transform-origin: center calc(100 / 60 * 5000% / 3);
+}
+
+.dot {
+    border: 0px;
+    border-radius: 50%;
+    background: darkblue;
+    height: 4%;
+    width: 4%;
+    position: absolute;
+    left: 48%;
+    top: 48%;
+}
+
+.hand {
+    position: absolute;
+    border-radius: 6px;
+    background: darkblue;
+    height: 35%;
+    width: 2%;
+    left: 49%;
+    top: 15%;
+    transform-origin: center bottom;
+    transform: rotate(314deg);
+    z-index: 200;
+}
+
+.one    { transform: rotate(30deg); }
+.two    { transform: rotate(60deg); }
+.three  { transform: rotate(90deg); }
+.four   { transform: rotate(120deg); }
+.five   { transform: rotate(150deg); }
+.six    { transform: rotate(180deg); }
+.seven  { transform: rotate(210deg); }
+.eight  { transform: rotate(240deg); }
+.nine   { transform: rotate(270deg); }
+.ten    { transform: rotate(300deg); }
+.eleven { transform: rotate(330deg); }
+
+.one    > .numeral { transform: rotate(-30deg); }
+.two    > .numeral { transform: rotate(-60deg); }
+.three  > .numeral { transform: rotate(-90deg); }
+.four   > .numeral { transform: rotate(-120deg); }
+.five   > .numeral { transform: rotate(-150deg); }
+.six    > .numeral { transform: rotate(-180deg); }
+.seven  > .numeral { transform: rotate(-210deg); }
+.eight  > .numeral { transform: rotate(-240deg); }
+.nine   > .numeral { transform: rotate(-270deg); }
+.ten    > .numeral { transform: rotate(-300deg); }
+.eleven > .numeral { transform: rotate(-330deg); }
+
+.minor-one    { transform: rotate(3deg); }
+.minor-two    { transform: rotate(6deg); }
+.minor-three  { transform: rotate(9deg); }
+.minor-four   { transform: rotate(12deg); }
+.minor-five   { transform: rotate(15deg); }
+.minor-six    { transform: rotate(18deg); }
+.minor-seven  { transform: rotate(21deg); }
+.minor-eight  { transform: rotate(24deg); }
+.minor-nine   { transform: rotate(27deg); }
+
+.hand-one    { transform: rotate(360deg); opacity: 0.1; }
+.hand-two    { transform: rotate(350deg); opacity: 0.13; }
+.hand-three  { transform: rotate(340deg); opacity: 0.16; }
+.hand-four   { transform: rotate(330deg); opacity: 0.20; }
+.hand-five   { transform: rotate(320deg); opacity: 0.23; }
+.hand-six    { transform: rotate(310deg); opacity: 0.26; }
+.hand-seven  { transform: rotate(300deg); opacity: 0.30; }
+.hand-eight  { transform: rotate(290deg); opacity: 0.33; }
+.hand-nine   { transform: rotate(280deg); opacity: 0.36; }
+.hand-ten    { transform: rotate(270deg); opacity: 0.4; }
+.hand-eleven { transform: rotate(260deg); opacity: 0.45; }
+.hand-twelve { transform: rotate(250deg); opacity: 1.0; }
+
+.nav a {
+    color: powderblue;
+    text-decoration: none;
+}
+
+.nav a:last-child {
+    float: right;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+	</style>
+    </head>
+    <body>
+        <h1>CSS Stopwatch Example</h1>
+
+        <div class="container">
+            <div class="clock">
+                <div class="major twelve">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major one">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major two">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major three">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major four">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major five">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major six">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major seven">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major eight">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major nine">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major ten">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+                <div class="major eleven">
+                    <div class="minor minor-one"></div>
+                    <div class="minor minor-two"></div>
+                    <div class="minor minor-three"></div>
+                    <div class="minor minor-four"></div>
+                    <div class="minor minor-five"></div>
+                    <div class="minor minor-six"></div>
+                    <div class="minor minor-seven"></div>
+                    <div class="minor minor-eight"></div>
+                    <div class="minor minor-nine"></div>
+                </div>
+
+                <div class="segment twelve"> <div class="numeral"> 0</div></div>
+                <div class="segment one">    <div class="numeral"> 5</div></div>
+                <div class="segment two">    <div class="numeral">10</div></div>
+                <div class="segment three">  <div class="numeral">15</div></div>
+                <div class="segment four">   <div class="numeral">20</div></div>
+                <div class="segment five">   <div class="numeral">25</div></div>
+                <div class="segment six">    <div class="numeral">30</div></div>
+                <div class="segment seven">  <div class="numeral">35</div></div>
+                <div class="segment eight">  <div class="numeral">40</div></div>
+                <div class="segment nine">   <div class="numeral">45</div></div>
+                <div class="segment ten">    <div class="numeral">50</div></div>
+                <div class="segment eleven"> <div class="numeral">55</div></div>
+
+                <div class="dot"></div>
+                <div class="hand hand-one"></div>
+                <div class="hand hand-two"></div>
+                <div class="hand hand-three"></div>
+                <div class="hand hand-four"></div>
+                <div class="hand hand-five"></div>
+                <div class="hand hand-six"></div>
+                <div class="hand hand-seven"></div>
+                <div class="hand hand-eight"></div>
+                <div class="hand hand-nine"></div>
+                <div class="hand hand-ten"></div>
+                <div class="hand hand-eleven"></div>
+                <div class="hand hand-twelve"></div>
+            </div>
+
+            <div class="nav">
+                <a href="step-11.html">&laquo; prev</a>
+                <a href="step-12.html">next &raquo;</a>
+            </div>
+        </div>
+
+    </body>
+</html>

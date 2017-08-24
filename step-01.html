@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>CSS Stopwatch Example</title>
+    	<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    color: darkblue;
+    background: darkslategrey;
+}
+
+h1 {
+    font-family: Calibri;
+    font-size: 36px;
+    text-align: center;
+    color: powderblue;
+    margin-top: 32px;
+}
+
+input[type="radio"] {
+    opacity: 0.001;
+    position: absolute;
+}
+
+.container {
+    position: relative;
+    margin: 2% auto;
+    font-family: Calibri;
+    font-size: 20px;
+    width: 400px;
+    height: 400px;
+}
+
+.clock {
+    background: powderblue;
+    border-color: darkblue;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.segment {
+    height: 100%;
+    position: absolute;
+    padding-top: 4%;
+    width: 2em;
+    left: calc(50% - 1em);
+    text-align: center;
+    top: 0px;
+}
+
+.nav a {
+    color: powderblue;
+    text-decoration: none;
+}
+
+.nav a:last-child {
+    float: right;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+.one    { transform: rotate(30deg); background: yellow; }
+.two    { transform: rotate(60deg); }
+.three  { transform: rotate(90deg); }
+.four   { transform: rotate(120deg); }
+.five   { transform: rotate(150deg); }
+.six    { transform: rotate(180deg); }
+.seven  { transform: rotate(210deg); }
+.eight  { transform: rotate(240deg); }
+.nine   { transform: rotate(270deg); }
+.ten    { transform: rotate(300deg); }
+.eleven { transform: rotate(330deg); }
+
+	</style>
+    </head>
+    <body>
+        <h1>CSS Stopwatch Example</h1>
+
+        <div class="container">
+            <div class="clock">
+                <div class="segment twelve">  0</div>
+                <div class="segment one">     5</div>
+            </div>
+
+            <div class="nav">
+                <a href="step-02.html">next &raquo;</a>
+            </div>
+        </div>
+
+    </body>
+</html>
